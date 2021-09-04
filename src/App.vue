@@ -64,8 +64,8 @@ export default {
         <Quote/>
         <UserTypedText/>
         <div class="flex flex-col lg:flex-row items-center justify-start space-x-4 mt-4">
-            <Button @clickTarget="startRace()" buttonText="start race" />
-            <Button @clickTarget="nextRace()" buttonText="next race" />
+            <Button @clickTarget="startRace()">{{ startRaceText }}</Button>
+            <Button @clickTarget="nextRace()">{{ nextRaceText }}</Button>
         </div>
     </div>
 </template>
