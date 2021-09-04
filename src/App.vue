@@ -12,6 +12,44 @@ export default {
             startRaceText: 'Start Race',
         }
     },
+    methods: {
+        startRace() {
+            const inputElement = document.getElementById('typedText');
+            this.resetRace();
+            inputElement.focus();
+            inputElement.removeAttribute('disabled');
+            inputElement.select();
+            this.stopWatch = setInterval(() => {
+                this.timeElapsed++;
+            }, 1000);
+        },
+        stopRace() {
+            const inputElement = document.getElementById('typedText');
+            clearInterval(this.stopWatch);
+            inputElement.setAttribute('disabled', true);
+            // calculate wpm
+            this.wpm = Math.round((((this.charactersTyped / 5) / this.timeElapsed) * 60));
+        },
+        nextRace() {
+            const inputElement = document.getElementById('typedText');
+            this.resetRace();
+            inputElement.removeAttribute('maxlength');
+            this.nextQuote();
+        },
+        resetRace() {
+            const quoteElement = document.getElementById('quote');
+            const arrayOfQuote = quoteElement.querySelectorAll('span');
+            const inputElement = document.getElementById('typedText');
+            clearInterval(this.stopWatch);
+            this.timeElapsed = 0;
+            this.wpm = 0;
+            inputElement.value = '';
+            arrayOfQuote.forEach((characterElement) => {
+                characterElement.classList.remove('text-green-400');
+                characterElement.classList.remove('text-red-500', 'bg-red-100', 'underline', 'font-semibold')
+            });
+        }
+    }
 }
 </script>
 
