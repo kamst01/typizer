@@ -7,6 +7,7 @@
         placeholder="Type here"
         @input="inputListener()"
         onpaste="return false;"
+        disabled
     >
 </template>
 
@@ -20,7 +21,7 @@ export default {
             const arrayOfInput = inputElement.value.split('');
             
             // increment the amount of characters typed, to reference for wpm
-            // this.charactersTyped++;
+            this.charactersTyped++;
 
             // with the quote returned from api,
             // make an array of the quote, after the split into span elements,
@@ -43,9 +44,9 @@ export default {
                     characterElement.classList.add('text-green-400');
                     characterElement.classList.remove('text-red-500', 'bg-red-200', 'underline', 'font-bold');
                     // once test is complete
-                    if (inputElement.value === this.quote) {
+                    if (this.quote === inputElement.value) {
                         // run race compelte function
-                        // this.stopRace();
+                        this.stopRace();
                         console.log(`completed the race! congrats! amount of chacters typed: ${this.charactersTyped}. while your wpm: ${this.wpm}.`);
                     }
                 } else {
