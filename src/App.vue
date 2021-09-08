@@ -70,6 +70,8 @@ export default {
             this.wpm = 0;
             // reset the input html element's inner value
             inputElement.value = '';
+            // disable the input element again
+            inputElement.setAttribute('disabled', true);
             // for each span element within the paragraph quote element 
             // & remove any stylings
             arrayOfQuote.forEach((characterElement) => {
