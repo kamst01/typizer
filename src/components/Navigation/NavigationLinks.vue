@@ -12,7 +12,7 @@ export default {
     <a href="#" :class="linksClass" aria-current="page">
         Home
     </a>
-    <a href="#" :class="linksClass">
+    <!-- <a href="#" :class="linksClass">
         Profile
     </a>
     <a href="#" :class="linksClass">
@@ -23,5 +23,5 @@ export default {
     </a>
     <a href="#" :class="linksClass">
         Openings
-    </a>
+    </a> -->
 </template>

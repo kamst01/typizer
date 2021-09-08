@@ -1,7 +1,7 @@
 <script setup>
 import Logo from './Logo.vue'
-import Navigation from '../Navigation/Index.vue'
-import NavigationLinks from '../Navigation/NavigationLinks.vue';
+import Navigation from '../navigation/Index.vue'
+import NavigationLinks from '../navigation/NavigationLinks.vue'
 </script>
 
 <script>
