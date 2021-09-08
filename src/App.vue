@@ -93,7 +93,9 @@ export default {
 
 <template>
     <div class="min-h-screen bg-gray-100">
+        <!-- Header -->
         <Header />
+        <!-- Main Content -->
         <main class="-mt-24 pb-8" aria-labelledby="contentHeading">
             <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:max-w-7xl lg:px-8">
                 <h1 id="contentHeading" class="sr-only" aria-hidden="true">Content</h1>
@@ -130,9 +132,13 @@ export default {
                 </div>
             </div>
         </main>
+        <!-- Footer -->
         <footer>
             <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 lg:max-w-7xl">
-            <div class="border-t border-gray-200 py-8 text-sm text-gray-500 text-center sm:text-left"><span class="block sm:inline">&copy; 2021 Tailwind Labs Inc.</span> <span class="block sm:inline">All rights reserved.</span></div>
+                <div class="border-t border-gray-200 py-8 text-sm text-gray-500 text-center sm:text-left">
+                    <span class="block sm:inline">Typizer. </span> 
+                    <span class="block sm:inline">MIT License.</span>
+                </div>
             </div>
         </footer>
     </div>
