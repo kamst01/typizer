@@ -122,7 +122,7 @@ import Button from './Button.vue';
                     <div class="rounded-lg bg-white overflow-hidden shadow">
                         <div class="p-6 space-y-6">
                             <h3 class="text-lg leading-6 font-semibold text-gray-900">
-                                Race Stats:
+                                Race Stats
                             </h3>
                         </div>
                         <div class="border-t border-gray-200 px-4 py-5 sm:p-0">
