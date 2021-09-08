@@ -1,7 +1,5 @@
 <script setup>
 import Logo from './Logo.vue';
-import Navigation from 'components/navigation/Index.vue';
-import NavigationLinks from 'components/navigation/NavigationLinks.vue';
 </script>
 
 <script>
@@ -46,10 +44,10 @@ export default {
             <div class="hidden lg:block border-t border-white border-opacity-20 py-5">
                 <div class="grid grid-cols-3 gap-8 items-center">
                     <div class="col-span-2">
-                        <Navigation 
+                        <!-- <Navigation 
                             navClass="flex" 
                             navLinksClass="text-white text-sm font-medium rounded-md bg-white bg-opacity-0 px-3 py-2 hover:bg-opacity-10"
-                        />
+                        /> -->
                     </div>
                 </div>
             </div>
@@ -87,7 +85,7 @@ export default {
                             </div>
                         </div>
                         <div class="mt-3 px-2 space-y-1">
-                            <NavigationLinks linksClass="block rounded-md px-3 py-2 text-base text-gray-900 font-medium hover:bg-gray-100 hover:text-gray-800" />
+                            <!-- <NavigationLinks linksClass="block rounded-md px-3 py-2 text-base text-gray-900 font-medium hover:bg-gray-100 hover:text-gray-800" /> -->
                         </div>
                     </div>
                     <!-- User Data - Not yet implemented -->
