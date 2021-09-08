@@ -6,7 +6,6 @@
         class="p-4 ring ring-gray-600 focus:ring focus:ring-blue-900 rounded"
         placeholder="Type here"
         @input="inputListener()"
-        onpaste="return false;"
         disabled
     >
 </template>
@@ -19,10 +18,6 @@ export default {
             const inputElement = document.getElementById('typedText');
             const arrayOfQuote = quoteElement.querySelectorAll('span');
             const arrayOfInput = inputElement.value.split('');
-            
-            // increment the amount of characters typed, to reference for wpm
-            this.charactersTyped++;
-
             // with the quote returned from api,
             // make an array of the quote, after the split into span elements,
             arrayOfQuote.forEach((characterElement, index) => {
@@ -43,12 +38,6 @@ export default {
                     // also, remove incorrect styling
                     characterElement.classList.add('text-green-400');
                     characterElement.classList.remove('text-red-500', 'bg-red-200', 'underline', 'font-bold');
-                    // once test is complete
-                    if (this.quote === inputElement.value) {
-                        // run race compelte function
-                        this.stopRace();
-                        console.log(`completed the race! congrats! amount of chacters typed: ${this.charactersTyped}. while your wpm: ${this.wpm}.`);
-                    }
                 } else {
                     // if the input value is not the same as the next character in the quote
                     if (inputValue !== characterElement.innerText[index]) {
