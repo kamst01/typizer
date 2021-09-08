@@ -58,6 +58,8 @@ export default {
             this.timeElapsed = 0;
             // reset wpm data
             this.wpm = 0;
+            // reset characters typed
+            this.charactersTyped = 0;
             // reset the input html element's inner value
             inputElement.value = '';
             // disable the input element again
