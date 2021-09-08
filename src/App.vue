@@ -21,6 +21,7 @@ export default {
     methods: {
         // TODO: can these methods go into seperate modules/files?
         // TODO: how can I refactor these methods?
+        // TODO: is having a second `@input` on UserTypedText component, while inner input element also has `@input` attribue which watches it's own scoped method, bad?
         startRace() {
             const inputElement = document.getElementById('typedText');
             // reset the race before each race start
