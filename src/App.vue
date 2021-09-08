@@ -102,7 +102,7 @@ export default {
                 <h1 id="contentHeading" class="sr-only" aria-hidden="true">Content</h1>
                 <!-- Main 3 column grid -->
                 <div class="grid grid-cols-1 gap-4 items-start lg:grid-cols-3 lg:gap-8">
-                    <!-- Left column -->
+                    <!-- Left 2 column -->
                     <div class="grid grid-cols-1 gap-4 lg:col-span-2">
                         <section aria-labelledby="typizerRaceHeading">
                             <h2 class="sr-only" id="typizerRaceHeading">Typizer Race</h2>
@@ -119,13 +119,13 @@ export default {
                         </section>
                     </div>
 
-                    <!-- Right column -->
+                    <!-- Right 1 column -->
                     <div class="grid grid-cols-1 gap-4">
                         <section aria-labelledby="typizerRaceStatsHeading">
                             <h2 class="sr-only" id="typizerRaceStatsHeading">Typizer Stats</h2>
                             <div class="rounded-lg bg-white overflow-hidden shadow">
                                 <div class="p-6">
-                                    <!-- Your content -->
+                                    <!-- Stats -->
                                 </div>
                             </div>
                         </section>
