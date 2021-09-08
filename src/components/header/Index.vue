@@ -15,7 +15,7 @@ export default {
 </script>
 
 <template>
-    <header class="pb-24 bg-indigo-600" aria-labelledby="headerHeading">
+    <header class="pb-24 bg-sky-600" aria-labelledby="headerHeading">
         <h2 id="headerHeading" class="sr-only" aria-hidden="true">Header with Navigation</h2>
         <!-- Desktop header -->
         <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:max-w-7xl lg:px-8">
@@ -29,7 +29,7 @@ export default {
                 <!-- Menu button -->
                 <div class="absolute right-0 flex-shrink-0 lg:hidden">
                     <!-- Mobile menu button -->
-                    <button type="button" class="bg-transparent p-2 rounded-md inline-flex items-center justify-center text-indigo-200 hover:text-white hover:bg-white hover:bg-opacity-10 focus:outline-none focus:ring-2 focus:ring-white" @click="isOpen = !isOpen" aria-expanded="false">
+                    <button type="button" class="bg-transparent p-2 rounded-md inline-flex items-center justify-center text-sky-200 hover:text-white hover:bg-white hover:bg-opacity-10 focus:outline-none focus:ring-2 focus:ring-white" @click="isOpen = !isOpen" aria-expanded="false">
                         <span class="sr-only">Open main menu</span>
                         <!-- Heroicon name: outline/menu -->
                         <svg class="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
@@ -77,7 +77,7 @@ export default {
                                 <Logo/>
                             </div>
                             <div class="-mr-2">
-                                <button type="button" class="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500" @click="isOpen = !isOpen">
+                                <button type="button" class="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-sky-500" @click="isOpen = !isOpen">
                                     <span class="sr-only">Close menu</span>
                                     <!-- Heroicon name: outline/x -->
                                     <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
@@ -100,7 +100,7 @@ export default {
                                 <div class="text-base font-medium text-gray-800 truncate">Tom Cook</div>
                                 <div class="text-sm font-medium text-gray-500 truncate">tom@example.com</div>
                             </div>
-                            <button type="button" class="ml-auto flex-shrink-0 bg-white p-1 text-gray-400 rounded-full hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                            <button type="button" class="ml-auto flex-shrink-0 bg-white p-1 text-gray-400 rounded-full hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-sky-500">
                                 <span class="sr-only">View notifications</span>
                                 Heroicon name: outline/bell
                                 <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">

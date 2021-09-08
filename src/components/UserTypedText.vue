@@ -3,7 +3,7 @@
         type="text" 
         name="typedText" 
         id="typedText"
-        class="p-4 w-full ring ring-gray-600 focus:ring focus:ring-blue-900 rounded"
+        class="p-4 w-full ring ring-gray-600 focus:ring focus:ring-sky-600 rounded"
         placeholder="Type here"
         @input="inputListener()"
         onpaste="return false;"
