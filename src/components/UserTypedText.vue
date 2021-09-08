@@ -6,6 +6,7 @@
         class="p-4 ring ring-gray-600 focus:ring focus:ring-blue-900 rounded"
         placeholder="Type here"
         @input="inputListener()"
+        onpaste="return false;"
         disabled
     >
 </template>
