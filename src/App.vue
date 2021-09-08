@@ -19,6 +19,8 @@ export default {
         }
     },
     methods: {
+        // TODO: can these methods go into seperate modules/files?
+        // TODO: how can I refactor these methods?
         startRace() {
             const inputElement = document.getElementById('typedText');
             // reset the race before each race start
