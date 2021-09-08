@@ -98,8 +98,8 @@ export default {
         <Header />
         <!-- Main Content -->
         <main class="-mt-24 pb-8" aria-labelledby="contentHeading">
+            <h1 id="contentHeading" class="sr-only" aria-hidden="true">Content</h1>
             <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:max-w-7xl lg:px-8">
-                <h1 id="contentHeading" class="sr-only" aria-hidden="true">Content</h1>
                 <!-- Main 3 column grid -->
                 <div class="grid grid-cols-1 gap-4 items-start lg:grid-cols-3 lg:gap-8">
                     <!-- Left 2 column -->
