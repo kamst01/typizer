@@ -9,7 +9,7 @@ export default {
 }
 </script>
 <template>
-    <a href="#" :class="linksClass" aria-current="page">
+    <a href="/" :class="linksClass" aria-current="page">
         Home
     </a>
     <!-- <a href="#" :class="linksClass">
