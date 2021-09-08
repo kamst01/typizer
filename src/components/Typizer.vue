@@ -66,7 +66,7 @@ methods: {
             // & remove any stylings
             arrayOfQuote.forEach((characterElement) => {
                 characterElement.classList.remove('text-green-400');
-                characterElement.classList.remove('text-red-500', 'bg-red-100', 'underline', 'font-semibold')
+                characterElement.classList.remove('text-red-500', 'bg-red-200', 'underline', 'font-semibold')
             });
         },
         watchRace() {
