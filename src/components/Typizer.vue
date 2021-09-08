@@ -1,6 +1,6 @@
 <script>
 export default {
-data() {
+    data() {
         return {
             stopWatch: ref(undefined),
             timeElapsed: ref(0),
@@ -10,7 +10,7 @@ data() {
             startRaceText: 'Start Race',
         }
     },
-methods: {
+    methods: {
         // TODO: can these methods go into seperate modules/files?
         // TODO: how can I refactor these methods?
         // TODO: is having a second `@input` on UserTypedText component, while inner input element also has `@input` attribue which watches it's own scoped method, bad?
@@ -75,7 +75,7 @@ methods: {
             this.charactersTyped++;
             // if the input value typed is equal
             // to the quote provided by the api
-            if ((inputElement.value === quote.content.value)) {
+            if (inputElement.value === quote.content.value) {
                 // run stop race method function
                 this.stopRace();
             }
