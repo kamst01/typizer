@@ -107,7 +107,7 @@ export default {
                         <section aria-labelledby="typizerRaceHeading">
                             <h2 class="sr-only" id="typizerRaceHeading">Typizer Race</h2>
                             <div class="rounded-lg bg-white overflow-hidden shadow">
-                                <div class="p-6 space-y-4">
+                                <div class="p-6 space-y-6">
                                     <Quote/>
                                     <UserTypedText @input="watchRace"/>
                                     <div class="flex flex-row items-center justify-start space-x-4 mt-4">
