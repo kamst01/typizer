@@ -118,15 +118,18 @@ import Button from './Button.vue';
             <!-- Right 1 column -->
             <div class="grid grid-cols-1 gap-4">
                 <section aria-labelledby="typizerRaceStatsHeading">
-                    <h2 class="sr-only" id="typizerRaceStatsHeading">Typizer Stats</h2>
                     <div class="rounded-lg bg-white overflow-hidden shadow">
                         <div class="p-6 space-y-6">
-                            <h3 class="text-lg leading-6 font-semibold text-gray-900">
+                            <h3 
+                                id="typizerRaceStatsHeading" 
+                                class="not-sr-only text-lg leading-6 font-semibold text-gray-900" 
+                                aria-hidden="true"
+                            >
                                 Race Stats
                             </h3>
                         </div>
                         <div class="border-t border-gray-200 px-4 py-5 sm:p-0">
-                            <dl class="sm:divide-y sm:divide-gray-200">
+                            <dl class="sm:divide-y sm:divide-gray-200" aria-labelledby="typizerRaceStatsHeading">
                                 <div class="py-4 sm:py-5 sm:grid sm:grid-cols-2 sm:gap-4 sm:px-6">
                                     <dt class="text-sm font-semibold text-gray-500">
                                         Time Elapsed
