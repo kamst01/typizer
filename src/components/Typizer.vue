@@ -118,8 +118,38 @@ import Button from './Button.vue';
                 <section aria-labelledby="typizerRaceStatsHeading">
                     <h2 class="sr-only" id="typizerRaceStatsHeading">Typizer Stats</h2>
                     <div class="rounded-lg bg-white overflow-hidden shadow">
-                        <div class="p-6">
-                            <!-- Stats -->
+                        <div class="p-6 space-y-6">
+                            <h3 class="text-lg leading-6 font-medium text-gray-900">
+                                Race Stats:
+                            </h3>
+                        </div>
+                        <div class="border-t border-gray-200 px-4 py-5 sm:p-0">
+                            <dl class="sm:divide-y sm:divide-gray-200">
+                                <div class="py-4 sm:py-5 sm:grid sm:grid-cols-2 sm:gap-4 sm:px-6">
+                                    <dt class="text-sm font-medium text-gray-500">
+                                        Time
+                                    </dt>
+                                    <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-1">
+                                        {{ timeElapsed }}
+                                    </dd>
+                                </div>
+                                <div class="py-4 sm:py-5 sm:grid sm:grid-cols-2 sm:gap-4 sm:px-6">
+                                    <dt class="text-sm font-medium text-gray-500">
+                                        Words Per Minute
+                                    </dt>
+                                    <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-1">
+                                        {{ wpm }}
+                                    </dd>
+                                </div>
+                                <div class="py-4 sm:py-5 sm:grid sm:grid-cols-2 sm:gap-4 sm:px-6">
+                                    <dt class="text-sm font-medium text-gray-500">
+                                        Characters Typed
+                                    </dt>
+                                    <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-1">
+                                        {{ charactersTyped }}
+                                    </dd>
+                                </div>
+                            </dl>
                         </div>
                     </div>
                 </section>
