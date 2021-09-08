@@ -88,7 +88,7 @@ export default {
 
 <script setup>
 import {ref} from 'vue';
-import {nextQuote, quote} from '@/api/fetchRandomQuote.js';
+import {nextQuote, quote} from './api/fetchRandomQuote.js';
 import Quote from "./Quote.vue";
 import UserTypedText from "./UserTypedText.vue";
 import Button from './Button.vue';
