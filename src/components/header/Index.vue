@@ -47,7 +47,7 @@ export default {
                 <div class="grid grid-cols-3 gap-8 items-center">
                     <div class="col-span-2">
                         <Navigation 
-                            navClass="flex space-x-4" 
+                            navClass="flex" 
                             navLinksClass="text-white text-sm font-medium rounded-md bg-white bg-opacity-0 px-3 py-2 hover:bg-opacity-10"
                         />
                     </div>
