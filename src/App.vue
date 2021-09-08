@@ -21,10 +21,15 @@ export default {
     methods: {
         startRace() {
             const inputElement = document.getElementById('typedText');
+            // reset the race before each race start
             this.resetRace();
+            // focus, 
             inputElement.focus();
+            // remove disabled attribue,
             inputElement.removeAttribute('disabled');
+            // then automatically select the input so the user doesn't have to
             inputElement.select();
+            // start a stop watch
             this.stopWatch = setInterval(() => {
                 this.timeElapsed++;
             }, 1000);
@@ -41,18 +46,27 @@ export default {
         },
         nextRace() {
             const inputElement = document.getElementById('typedText');
+            // reset the race before each race start
             this.resetRace();
+            // remove the maxlength attribute that limits the user typing more after a race finish, or messup
             inputElement.removeAttribute('maxlength');
+            // get the next quote from api
             nextQuote();
         },
         resetRace() {
             const quoteElement = document.getElementById('quote');
             const arrayOfQuote = quoteElement.querySelectorAll('span');
             const inputElement = document.getElementById('typedText');
+            // clear stop watch
             clearInterval(this.stopWatch);
+            // reset time elapsed data
             this.timeElapsed = 0;
+            // reset wpm data
             this.wpm = 0;
+            // reset the input html element's inner value
             inputElement.value = '';
+            // for each span element within the paragraph quote element 
+            // & remove any stylings
             arrayOfQuote.forEach((characterElement) => {
                 characterElement.classList.remove('text-green-400');
                 characterElement.classList.remove('text-red-500', 'bg-red-100', 'underline', 'font-semibold')
