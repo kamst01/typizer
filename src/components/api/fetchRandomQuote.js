@@ -1,7 +1,8 @@
 import { ref } from 'vue';
 export const quote = {
     author: ref(''),
-    content: ref('')
+    content: ref(''),
+    length: ref(''),
 };
 export async function fetchRandomQuote() {
     try {
@@ -9,7 +10,8 @@ export async function fetchRandomQuote() {
         const data = await response.json();
         quote.content.value = data.content;
         quote.author.value = data.author;
-        return quote.author.value, quote.content.value;
+        quote.length.value = data.length;
+        return quote.author.value, quote.content.value, quote.length.value;
     } catch (err) {
         return console.error(err);
     }

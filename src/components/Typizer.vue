@@ -156,6 +156,35 @@ import Button from './Button.vue';
                                 </div>
                             </dl>
                         </div>
+                        <div class="p-6 space-y-6">
+                            <h3 
+                                id="typizerRaceStatsHeading" 
+                                class="not-sr-only text-lg leading-6 font-semibold text-gray-900" 
+                                aria-hidden="true"
+                            >
+                                Quote Information
+                            </h3>
+                        </div>
+                        <div class="border-t border-gray-200 px-4 py-5 sm:p-0">
+                            <dl class="sm:divide-y sm:divide-gray-200" aria-labelledby="typizerRaceStatsHeading">
+                                <div class="py-4 sm:py-5 sm:grid sm:grid-cols-2 sm:gap-4 sm:px-6">
+                                    <dt class="text-sm font-semibold text-gray-500">
+                                        Author
+                                    </dt>
+                                    <dd class="mt-1 text-sm font-medium text-gray-900 sm:mt-0 sm:col-span-1">
+                                        {{ quote.author.value }}
+                                    </dd>
+                                </div>
+                                <div class="py-4 sm:py-5 sm:grid sm:grid-cols-2 sm:gap-4 sm:px-6">
+                                    <dt class="text-sm font-semibold text-gray-500">
+                                        Total Characters
+                                    </dt>
+                                    <dd class="mt-1 text-sm font-medium text-gray-900 sm:mt-0 sm:col-span-1">
+                                        {{ quote.length.value }}
+                                    </dd>
+                                </div>
+                            </dl>
+                        </div>
                     </div>
                 </section>
             </div>
