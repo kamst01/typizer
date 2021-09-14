@@ -113,60 +113,59 @@ import Button from './Button.vue';
                         </div>
                     </div>
                 </section>
+                <section class="bg-white rounded-lg shadow" aria-labelledby="typizerRaceStatsHeading">
+                    <h2 
+                        id="typizerRaceStatsHeading" 
+                        class="not-sr-only text-lg leading-6 font-semibold text-gray-900 border-b p-6" 
+                        aria-hidden="true"
+                    >
+                        Race Stats
+                    </h2>
+                    <dl class="sm:grid sm:grid-cols-3" aria-labelledby="typizerRaceStatsHeading">
+                        <div class="flex flex-col p-6 text-center border-b border-blue-100 sm:border-0 sm:border-r">
+                            <dt class="order-2 mt-2 text-lg font-medium leading-6 text-gray-500">
+                                Time Elapsed
+                            </dt>
+                            <dd class="order-1 text-5xl font-extrabold text-blue-500 opacity-90">
+                                {{ timeElapsed }}
+                            </dd>
+                        </div>
+                        <div class="flex flex-col p-6 text-center border-b border-blue-100 sm:border-0 sm:border-r">
+                            <dt class="order-2 mt-2 text-lg font-medium leading-6 text-gray-500">
+                                WPM
+                            </dt>
+                            <dd class="order-1 text-5xl font-extrabold text-blue-500 opacity-90">
+                                {{ wpm }}
+                            </dd>
+                        </div>
+                        <div class="flex flex-col p-6 text-center border-b border-blue-100 sm:border-0 sm:border-r">
+                            <dt class="order-2 mt-2 text-lg font-medium leading-6 text-gray-500">
+                                Characters Typed
+                            </dt>
+                            <dd class="order-1 text-5xl font-extrabold text-blue-500 opacity-90">
+                                {{ charactersTyped }}
+                            </dd>
+                        </div>
+                    </dl>
+                </section>
             </div>
 
             <!-- Right 1 column -->
-            <div class="grid grid-cols-1 gap-4">
-                <section aria-labelledby="typizerRaceStatsHeading">
+            <section aria-labelledby="typizerQuoteInformationHeading">
+                <div class="grid grid-cols-1 gap-4">
                     <div class="rounded-lg bg-white overflow-hidden shadow">
+                        <!-- Quote Information -->
                         <div class="p-6 space-y-6">
-                            <h3 
-                                id="typizerRaceStatsHeading" 
-                                class="not-sr-only text-lg leading-6 font-semibold text-gray-900" 
-                                aria-hidden="true"
-                            >
-                                Race Stats
-                            </h3>
-                        </div>
-                        <div class="border-t border-gray-200 px-4 py-5 sm:p-0">
-                            <dl class="sm:divide-y sm:divide-gray-200" aria-labelledby="typizerRaceStatsHeading">
-                                <div class="py-4 sm:py-5 sm:grid sm:grid-cols-2 sm:gap-4 sm:px-6">
-                                    <dt class="text-sm font-semibold text-gray-500">
-                                        Time Elapsed
-                                    </dt>
-                                    <dd class="mt-1 text-sm font-medium text-gray-900 sm:mt-0 sm:col-span-1">
-                                        {{ timeElapsed }}
-                                    </dd>
-                                </div>
-                                <div class="py-4 sm:py-5 sm:grid sm:grid-cols-2 sm:gap-4 sm:px-6">
-                                    <dt class="text-sm font-semibold text-gray-500">
-                                        Words Per Minute
-                                    </dt>
-                                    <dd class="mt-1 text-sm font-medium text-gray-900 sm:mt-0 sm:col-span-1">
-                                        {{ wpm }}
-                                    </dd>
-                                </div>
-                                <div class="py-4 sm:py-5 sm:grid sm:grid-cols-2 sm:gap-4 sm:px-6">
-                                    <dt class="text-sm font-semibold text-gray-500">
-                                        Characters Typed
-                                    </dt>
-                                    <dd class="mt-1 text-sm font-medium text-gray-900 sm:mt-0 sm:col-span-1">
-                                        {{ charactersTyped }}
-                                    </dd>
-                                </div>
-                            </dl>
-                        </div>
-                        <div class="p-6 space-y-6">
-                            <h3 
-                                id="typizerRaceStatsHeading" 
+                            <h2 
+                                id="typizerQuoteInformationHeading" 
                                 class="not-sr-only text-lg leading-6 font-semibold text-gray-900" 
                                 aria-hidden="true"
                             >
                                 Quote Information
-                            </h3>
+                            </h2>
                         </div>
                         <div class="border-t border-gray-200 px-4 py-5 sm:p-0">
-                            <dl class="sm:divide-y sm:divide-gray-200" aria-labelledby="typizerRaceStatsHeading">
+                            <dl class="sm:divide-y sm:divide-gray-200" aria-labelledby="typizerQuoteInformationHeading">
                                 <div class="py-4 sm:py-5 sm:grid sm:grid-cols-2 sm:gap-4 sm:px-6">
                                     <dt class="text-sm font-semibold text-gray-500">
                                         Author
@@ -186,8 +185,8 @@ import Button from './Button.vue';
                             </dl>
                         </div>
                     </div>
-                </section>
-            </div>
+                </div>
+            </section>
         </div>
     </div>
 </template>
