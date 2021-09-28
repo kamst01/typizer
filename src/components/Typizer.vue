@@ -2,6 +2,8 @@
 export default {
     data() {
         return {
+            prestartStopWatch: ref(undefined),
+            prestartTimeElapsed: ref(3),
             stopWatch: ref(undefined),
             timeElapsed: ref(0),
             charactersTyped: ref(0),
@@ -14,10 +16,22 @@ export default {
         // TODO: can these methods go into seperate modules/files?
         // TODO: how can I refactor these methods?
         // TODO: is having a second `@input` on UserTypedText component, while inner input element also has `@input` attribue which watches it's own scoped method, bad?
+        prestartRace() {
+            this.resetRace();
+            this.prestartStopWatch = setInterval(() => {
+                this.prestartTimeElapsed--;
+                if(this.prestartTimeElapsed === 0) {
+                    setTimeout(() => {
+                        this.startRace();
+                    });
+                }
+            }, 1000);
+        },
         startRace() {
             const inputElement = document.getElementById('typedText');
             // reset the race before each race start
             this.resetRace();
+            this.prestartTimeElapsed = 0;
             // focus, 
             inputElement.focus();
             // remove disabled attribue,
@@ -52,10 +66,13 @@ export default {
             const inputElement = document.getElementById('typedText');
             const quoteElement = document.getElementById('quote');
             const arrayOfQuote = quoteElement.querySelectorAll('span');
-            // clear stop watch
+            // clear stop watches
             clearInterval(this.stopWatch);
+            clearInterval(this.prestartStopWatch);
             // reset time elapsed data
             this.timeElapsed = 0;
+            // reset prestart time data
+            this.prestartTimeElapsed = 3;
             // reset wpm data
             this.wpm = 0;
             // reset characters typed
@@ -107,7 +124,7 @@ import Button from './Button.vue';
                             <Quote/>
                             <UserTypedText @input="watchRace"/>
                             <div class="flex flex-row items-center justify-start mt-4 space-x-4">
-                                <Button @clickTarget="startRace()">{{ startRaceText }}</Button>
+                                <Button @clickTarget="prestartRace()">{{ startRaceText }}</Button>
                                 <Button @clickTarget="nextRace()">{{ nextRaceText }}</Button>
                             </div>
                         </div>
@@ -121,7 +138,18 @@ import Button from './Button.vue';
                     >
                         Race Stats
                     </h2>
-                    <dl class="sm:grid sm:grid-cols-3" aria-labelledby="typizerRaceStatsHeading">
+                    <dl class="sm:grid sm:grid-cols-4" aria-labelledby="typizerRaceStatsHeading">
+                        <div class="flex flex-col p-6 text-center border-b border-blue-100 sm:border-0 sm:border-r">
+                            <dt class="order-2 mt-2 text-lg font-medium leading-6 text-gray-500">
+                                Starting In
+                            </dt>
+                            <dd 
+                                class="order-1 text-5xl font-extrabold opacity-90"
+                                :class="{'text-red-600': prestartTimeElapsed < 3}"
+                            >
+                                {{ prestartTimeElapsed }}
+                            </dd>
+                        </div>
                         <div class="flex flex-col p-6 text-center border-b border-blue-100 sm:border-0 sm:border-r">
                             <dt class="order-2 mt-2 text-lg font-medium leading-6 text-gray-500">
                                 Time Elapsed
