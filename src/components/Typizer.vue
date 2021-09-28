@@ -2,6 +2,8 @@
 export default {
     data() {
         return {
+            prestartStopWatch: ref(undefined),
+            prestartTimeElapsed: ref(3),
             stopWatch: ref(undefined),
             timeElapsed: ref(0),
             charactersTyped: ref(0),
@@ -14,10 +16,31 @@ export default {
         // TODO: can these methods go into seperate modules/files?
         // TODO: how can I refactor these methods?
         // TODO: is having a second `@input` on UserTypedText component, while inner input element also has `@input` attribue which watches it's own scoped method, bad?
+        prestartRace() {
+            // reset the race before each start
+            this.resetRace();
+            // start a prestart stopwatch
+            this.prestartStopWatch = setInterval(() => {
+                // coundown one second on each interval
+                this.prestartTimeElapsed--;
+                // once the prestart elapsed time reaches 0,
+                if(this.prestartTimeElapsed === 0) {
+                    // start a timeout to run once, and only once
+                    setTimeout(() => {
+                        // start the race
+                        this.startRace();
+                    });
+                }
+            }, 1000);
+        },
         startRace() {
             const inputElement = document.getElementById('typedText');
             // reset the race before each race start
             this.resetRace();
+            // resetRace() resets the prestart elapsed time to 3,
+            // but at the beginning of a race, 
+            // the prestart elapsed time should remain 0 
+            this.prestartTimeElapsed = 0;
             // focus, 
             inputElement.focus();
             // remove disabled attribue,
@@ -52,10 +75,13 @@ export default {
             const inputElement = document.getElementById('typedText');
             const quoteElement = document.getElementById('quote');
             const arrayOfQuote = quoteElement.querySelectorAll('span');
-            // clear stop watch
+            // clear stop watches
             clearInterval(this.stopWatch);
+            clearInterval(this.prestartStopWatch);
             // reset time elapsed data
             this.timeElapsed = 0;
+            // reset prestart elapsed time data
+            this.prestartTimeElapsed = 3;
             // reset wpm data
             this.wpm = 0;
             // reset characters typed
@@ -95,19 +121,19 @@ import Button from './Button.vue';
 </script>
 
 <template>
-    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:max-w-7xl lg:px-8">
+    <div class="max-w-3xl px-4 mx-auto sm:px-6 lg:max-w-7xl lg:px-8">
         <!-- Main 3 column grid -->
-        <div class="grid grid-cols-1 gap-4 items-start lg:grid-cols-3 lg:gap-8">
+        <div class="grid items-start grid-cols-1 gap-4 lg:grid-cols-3 lg:gap-8">
             <!-- Left 2 column -->
             <div class="grid grid-cols-1 gap-4 lg:col-span-2">
                 <section aria-labelledby="typizerRaceHeading">
                     <h2 class="sr-only" id="typizerRaceHeading">Typizer Race</h2>
-                    <div class="rounded-lg bg-white overflow-hidden shadow">
+                    <div class="overflow-hidden bg-white rounded-lg shadow">
                         <div class="p-6 space-y-6">
                             <Quote/>
                             <UserTypedText @input="watchRace"/>
-                            <div class="flex flex-row items-center justify-start space-x-4 mt-4">
-                                <Button @clickTarget="startRace()">{{ startRaceText }}</Button>
+                            <div class="flex flex-row items-center justify-start mt-4 space-x-4">
+                                <Button @clickTarget="prestartRace()">{{ startRaceText }}</Button>
                                 <Button @clickTarget="nextRace()">{{ nextRaceText }}</Button>
                             </div>
                         </div>
@@ -116,17 +142,28 @@ import Button from './Button.vue';
                 <section class="bg-white rounded-lg shadow" aria-labelledby="typizerRaceStatsHeading">
                     <h2 
                         id="typizerRaceStatsHeading" 
-                        class="not-sr-only text-lg leading-6 font-semibold text-gray-900 border-b p-6" 
+                        class="p-6 text-lg font-semibold leading-6 text-gray-900 border-b not-sr-only" 
                         aria-hidden="true"
                     >
                         Race Stats
                     </h2>
-                    <dl class="sm:grid sm:grid-cols-3" aria-labelledby="typizerRaceStatsHeading">
+                    <dl class="sm:grid sm:grid-cols-4" aria-labelledby="typizerRaceStatsHeading">
+                        <div class="flex flex-col p-6 text-center border-b border-blue-100 sm:border-0 sm:border-r">
+                            <dt class="order-2 mt-2 text-lg font-medium leading-6 text-gray-500">
+                                Starting In
+                            </dt>
+                            <dd 
+                                class="order-1 text-5xl font-extrabold opacity-90"
+                                :class="{'text-red-600': prestartTimeElapsed < 3}"
+                            >
+                                {{ prestartTimeElapsed }}
+                            </dd>
+                        </div>
                         <div class="flex flex-col p-6 text-center border-b border-blue-100 sm:border-0 sm:border-r">
                             <dt class="order-2 mt-2 text-lg font-medium leading-6 text-gray-500">
                                 Time Elapsed
                             </dt>
-                            <dd class="order-1 text-5xl font-extrabold text-blue-500 opacity-90">
+                            <dd class="order-1 text-5xl font-extrabold opacity-90">
                                 {{ timeElapsed }}
                             </dd>
                         </div>
@@ -134,7 +171,7 @@ import Button from './Button.vue';
                             <dt class="order-2 mt-2 text-lg font-medium leading-6 text-gray-500">
                                 WPM
                             </dt>
-                            <dd class="order-1 text-5xl font-extrabold text-blue-500 opacity-90">
+                            <dd class="order-1 text-5xl font-extrabold opacity-90">
                                 {{ wpm }}
                             </dd>
                         </div>
@@ -142,7 +179,7 @@ import Button from './Button.vue';
                             <dt class="order-2 mt-2 text-lg font-medium leading-6 text-gray-500">
                                 Characters Typed
                             </dt>
-                            <dd class="order-1 text-5xl font-extrabold text-blue-500 opacity-90">
+                            <dd class="order-1 text-5xl font-extrabold opacity-90">
                                 {{ charactersTyped }}
                             </dd>
                         </div>
@@ -153,18 +190,18 @@ import Button from './Button.vue';
             <!-- Right 1 column -->
             <section aria-labelledby="typizerQuoteInformationHeading">
                 <div class="grid grid-cols-1 gap-4">
-                    <div class="rounded-lg bg-white overflow-hidden shadow">
+                    <div class="overflow-hidden bg-white rounded-lg shadow">
                         <!-- Quote Information -->
                         <div class="p-6 space-y-6">
                             <h2 
                                 id="typizerQuoteInformationHeading" 
-                                class="not-sr-only text-lg leading-6 font-semibold text-gray-900" 
+                                class="text-lg font-semibold leading-6 text-gray-900 not-sr-only" 
                                 aria-hidden="true"
                             >
                                 Quote Information
                             </h2>
                         </div>
-                        <div class="border-t border-gray-200 px-4 py-5 sm:p-0">
+                        <div class="px-4 py-5 border-t border-gray-200 sm:p-0">
                             <dl class="sm:divide-y sm:divide-gray-200" aria-labelledby="typizerQuoteInformationHeading">
                                 <div class="py-4 sm:py-5 sm:grid sm:grid-cols-2 sm:gap-4 sm:px-6">
                                     <dt class="text-sm font-semibold text-gray-500">
