@@ -17,11 +17,17 @@ export default {
         // TODO: how can I refactor these methods?
         // TODO: is having a second `@input` on UserTypedText component, while inner input element also has `@input` attribue which watches it's own scoped method, bad?
         prestartRace() {
+            // reset the race before each start
             this.resetRace();
+            // start a prestart stopwatch
             this.prestartStopWatch = setInterval(() => {
+                // coundown one second on each interval
                 this.prestartTimeElapsed--;
+                // once the prestart elapsed time reaches 0,
                 if(this.prestartTimeElapsed === 0) {
+                    // start a timeout to run once, and only once
                     setTimeout(() => {
+                        // start the race
                         this.startRace();
                     });
                 }
@@ -31,6 +37,9 @@ export default {
             const inputElement = document.getElementById('typedText');
             // reset the race before each race start
             this.resetRace();
+            // resetRace() resets the prestart elapsed time to 3,
+            // but at the beginning of a race, 
+            // the prestart elapsed time should remain 0 
             this.prestartTimeElapsed = 0;
             // focus, 
             inputElement.focus();
@@ -71,7 +80,7 @@ export default {
             clearInterval(this.prestartStopWatch);
             // reset time elapsed data
             this.timeElapsed = 0;
-            // reset prestart time data
+            // reset prestart elapsed time data
             this.prestartTimeElapsed = 3;
             // reset wpm data
             this.wpm = 0;
